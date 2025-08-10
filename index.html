@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Клікер Гра</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .currency-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+        .currency-bar img {
+            width: 36px;
+            height: 36px;
+            margin-right: 8px;
+        }
+        .currency-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #444;
+        }
+        .clicker-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 120px);
+            width: 100vw;
+        }
+        .clicker-btn {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .clicker-btn:active img {
+            transform: scale(0.92);
+        }
+        .pin-img {
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="currency-bar">
+        <img src="coin.png" alt="Coin">
+        <span class="currency-value" id="coins">0</span>
+    </div>
+    <div class="clicker-container">
+        <button class="clicker-btn" id="pinBtn">
+            <img src="pin.png" alt="Pin" class="pin-img">
+        </button>
+    </div>
+    <script>
+        let coins = 0;
+        const coinsElem = document.getElementById('coins');
+        const pinBtn = document.getElementById('pinBtn');
+
+        pinBtn.addEventListener('click', () => {
+            coins++;
+            coinsElem.textContent = coins;
+        });
+    </script>
+</body>
+</html>
